@@ -57,6 +57,12 @@ php artisan migrate
 php artisan vendor:publish --tag="filament-data-copilot-config"
 ```
 
+*(Optional)* Publish the translations:
+
+```shell
+php artisan vendor:publish --tag="filament-data-copilot-translations"
+```
+
 
 ## Usage
 
