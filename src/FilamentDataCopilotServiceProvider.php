@@ -16,6 +16,7 @@ class FilamentDataCopilotServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews()
             ->hasTranslations()
+            ->hasCommand(\Matondojk\FilamentDataCopilot\Commands\SendScheduledReports::class)
             ->hasMigration('create_filament_data_copilot_tables');
     }
 }

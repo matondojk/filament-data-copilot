@@ -92,7 +92,7 @@ class AiAnalysis extends Page implements HasForms, HasActions
                     
                     if ($data['schedule_frequency'] === 'now') {
                         // Queue immediate sending
-                        \App\Jobs\SendImmediateReportEmail::dispatch($report, $data['schedule_email']);
+                        \Matondojk\FilamentDataCopilot\Jobs\SendImmediateReportEmail::dispatch($report, $data['schedule_email']);
                         \Filament\Notifications\Notification::make()->title(__('filament-data-copilot::messages.Report queued for sending!'))->success()->send();
                     } else {
                         // Schedule
@@ -423,7 +423,7 @@ class AiAnalysis extends Page implements HasForms, HasActions
             $pluginSettings->footer_html = strtr($pluginSettings->footer_html ?? '', $replacements);
         }
         
-        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('pdf.report', [
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('filament-data-copilot::pdf.report', [
             'pluginSettings' => $pluginSettings,
             'resultData' => $this->resultData,
             'keys' => count($this->resultData) > 0 ? array_keys($this->resultData[0]) : [],
