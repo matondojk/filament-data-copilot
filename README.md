@@ -82,6 +82,21 @@ public function panel(Panel $panel): Panel
 Once registered, the **Data Copilot** and its **Settings** pages will appear in your Filament navigation menu.
 
 
+## Scheduling Reports
+
+This package allows users to schedule reports directly from the interface to be sent via email on a daily, weekly, or monthly basis.
+
+To ensure these scheduled emails are actually processed and sent out automatically, you must register the package's console command in your application's scheduler (typically located in `routes/console.php`):
+
+```php
+use Illuminate\Support\Facades\Schedule;
+
+Schedule::command('ai:send-scheduled-reports')->hourly();
+```
+
+*Note: Make sure your server's Cron is properly configured to run `php artisan schedule:run` every minute as per the official Laravel documentation.*
+
+
 ## Configuration
 
 Before making your first query, you must set up the AI context:
