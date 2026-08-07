@@ -445,6 +445,6 @@ class AiAnalysis extends Page implements HasForms, HasActions
         
         return response()->streamDownload(function () use ($pdf) {
             echo $pdf->output();
-        }, 'relatorio-analise.pdf');
+        }, \Illuminate\Support\Str::slug(__('filament-data-copilot::messages.Analysis Report')) . '.pdf');
     }
 }

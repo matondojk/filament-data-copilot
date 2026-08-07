@@ -20,6 +20,9 @@ class FilamentDataCopilotPlugin implements Plugin
             ->pages([
                 AiAnalysis::class,
                 AiSettings::class,
+            ])
+            ->resources([
+                \Matondojk\FilamentDataCopilot\Resources\AiReportResource::class,
             ]);
     }
 
