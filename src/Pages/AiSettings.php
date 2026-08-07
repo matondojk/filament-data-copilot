@@ -49,9 +49,7 @@ class AiSettings extends Page implements HasForms
     {
         $setting = AiReportSetting::first();
         $data = $setting ? $setting->toArray() : [];
-        if (empty($data['idioma'])) {
-            $data['idioma'] = config('app.locale');
-        }
+
         $this->form->fill($data);
     }
 
@@ -65,22 +63,7 @@ class AiSettings extends Page implements HasForms
                     ->collapsed()
                     ->schema([
                         Grid::make(2)->schema([
-                            Select::make('idioma')
-                                ->label(__('filament-data-copilot::messages.Main Language'))
-                                ->options([
-                                    'pt_BR' => 'Português (Brasil)',
-                                    'pt'    => 'Português (Portugal)',
-                                    'en'    => 'English (US)',
-                                    'es'    => 'Español (España)',
-                                    'fr'    => 'Français (France)',
-                                    'ar'    => 'العربية (Arabic)',
-                                    'de'    => 'Deutsch (German)',
-                                    'it'    => 'Italiano (Italian)',
-                                ])
-                                ->default(config('app.locale'))
-                                ->native(false)
-                                ->required(),
-                                
+
                             Select::make('currency')
                                 ->label(__('filament-data-copilot::messages.Currency'))
                                 ->options($this->getCurrencies())
@@ -193,27 +176,17 @@ class AiSettings extends Page implements HasForms
         
 
 
-        $oldIdioma = AiReportSetting::first()?->idioma;
 
         AiReportSetting::updateOrCreate(
             ['id' => 1],
             $data
         );
         
-        if (!empty($data['idioma'])) {
-            app()->setLocale($data['idioma']);
-        }
-
         Notification::make()
             ->title(__('filament-data-copilot::messages.Settings saved successfully!'))
             ->success()
             ->send();
-            
-        if ($oldIdioma !== $data['idioma']) {
-            $this->js('window.location.reload()');
-            return;
-        }
-            
+
         return redirect(static::getUrl());
     }
 

@@ -242,7 +242,7 @@ class AiAnalysis extends Page implements HasForms, HasActions
         $settings = AiReportSetting::first();
         
         $this->appCurrency = $settings->currency ?? 'BRL';
-        $this->appLocale = $settings->idioma ?? config('app.locale', 'pt_BR');
+        $this->appLocale = app()->getLocale();
         
         $this->currentOutputMode = $data['output_mode'] ?? 'Gráfico';
         $this->currentChartType = $data['chart_type'] ?? 'bar';
