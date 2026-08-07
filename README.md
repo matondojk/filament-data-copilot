@@ -30,6 +30,7 @@
 
 Powered by the robust [Laravel AI SDK](https://laravel.com/docs/13.x/ai-sdk), this package supports multiple Large Language Models out-of-the-box:
 - **OpenAI** (GPT-4o, GPT-4o-mini)
+- **Google Gemini**
 - **DeepSeek** 
 - **Azure OpenAI**
 - **Anthropic**
