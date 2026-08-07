@@ -90,7 +90,7 @@
                         @foreach(['bar' => __('filament-data-copilot::messages.Bar'), 'line' => __('filament-data-copilot::messages.Line'), 'pie' => __('filament-data-copilot::messages.Pie'), 'doughnut' => __('filament-data-copilot::messages.Doughnut'), 'stacked' => __('filament-data-copilot::messages.Stacked Bar'), 'multi-axis' => __('filament-data-copilot::messages.Multi-Axis Line'), 'polarArea' => __('filament-data-copilot::messages.Polar Area'), 'combo' => __('filament-data-copilot::messages.Combo (Bar + Line)')] as $key => $label)
                             <label class="flex items-center gap-1.5 cursor-pointer group">
                                 <input type="radio" wire:model.live="currentChartType" value="{{ $key }}" class="w-3.5 h-3.5 text-primary-600 border-gray-300 focus:ring-primary-500 rounded-full transition-all bg-white dark:bg-white/10 dark:border-white/20">
-                                <span class="text-[11px] font-medium text-gray-700 dark:text-gray-200 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">{{ $label }}</span>
+                                <span class="font-medium text-gray-700 dark:text-gray-200 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors" style="font-size: 10px;">{{ $label }}</span>
                             </label>
                         @endforeach
                     </div>
@@ -328,10 +328,14 @@
                 @endif
 
                 @if(!empty($chartDescription) || !empty($reportTitle))
-                    <div class="mt-12">
-                        <x-filament::section :heading="$reportTitle ?? 'Análise'">
+                    <div style="margin-top: 50px;">
+                        <x-filament::section>
+                            <x-slot name="heading">
+                                <span style="font-size: 14px; font-weight: 600;">{{ $reportTitle ?? 'Análise' }}</span>
+                            </x-slot>
+                            
                             @if(!empty($chartDescription))
-                                <div class="prose prose-sm max-w-none text-gray-700 dark:text-gray-300 dark:prose-invert">
+                                <div class="prose max-w-none text-gray-700 dark:text-gray-300 dark:prose-invert" style="font-size: 13px; line-height: 1.6;">
                                     {!! \Illuminate\Support\Str::markdown($chartDescription) !!}
                                 </div>
                             @endif
