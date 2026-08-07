@@ -192,68 +192,7 @@ class AiSettings extends Page implements HasForms
         $textModel = (isset($data['ai_provider']) && $data['ai_provider'] === 'openai') ? 'gpt-4o-mini' : null;
         
 
-        
-        if (!empty($data['allowed_models'])) {
-            $existingSynonyms = $setting ? (is_array($setting->model_synonyms) ? $setting->model_synonyms : json_decode($setting->model_synonyms, true) ?? []) : [];
-            
-            $modelsToFetch = [];
-            $finalSynonyms = [];
-            
-            foreach ($data['allowed_models'] as $modelClass) {
-                if (class_exists($modelClass)) {
-                    $instance = new $modelClass;
-                    $tableName = $instance->getTable();
-                    
-                    if (isset($existingSynonyms[$tableName])) {
-                        $finalSynonyms[$tableName] = $existingSynonyms[$tableName];
-                    } else {
-                        $modelsToFetch[] = $modelClass;
-                    }
-                }
-            }
-            
-            if (!empty($modelsToFetch)) {
-                try {
-                    $modelContext = [];
-                    foreach ($modelsToFetch as $modelClass) {
-                        $instance = new $modelClass;
-                        $tableName = $instance->getTable();
-                        $fillable = implode(', ', $instance->getFillable());
-                        $modelContext[] = "- Tabela: {$tableName} (Campos: {$fillable})";
-                    }
-                    
-                    $contextString = implode("\n", $modelContext);
-                    $idiomaStr = $data['idioma'] ?? 'pt_BR';
-                    
-                    $agent = new \Laravel\Ai\AnonymousAgent(
-                        "You are a database and natural language processing expert. The user's system language is '{$idiomaStr}'.",
-                        [],
-                        []
-                    );
-                    
-                    $synonymsPrompt = "For each of the tables below, generate 20 synonyms, variations, or business terms that users would use to query these entities in natural language. Return STRICTLY a JSON object where the keys are the exact table names provided, and the values are arrays of strings containing the synonyms in the language '{$idiomaStr}'.\nTables:\n$contextString";
-                    
-                    $response = $agent->prompt($synonymsPrompt, [], $data['ai_provider'], $textModel);
-                    $content = $response->text;
-                    $content = preg_replace('/```json\s*/', '', $content);
-                    $content = preg_replace('/```\s*/', '', $content);
-                    
-                    $newSynonyms = json_decode(trim($content), true);
-                    if (is_array($newSynonyms) && count($newSynonyms) > 0) {
-                        $data['model_synonyms'] = array_merge($finalSynonyms, $newSynonyms);
-                    } else {
-                        $data['model_synonyms'] = $finalSynonyms;
-                    }
-                } catch (\Exception $e) {
-                    Log::error("Failed to generate model synonyms: " . $e->getMessage());
-                    Notification::make()->title(__('filament-data-copilot::messages.Warning'))->body(__('filament-data-copilot::messages.Error generating model synonyms with AI.'))->warning()->send();
-                    $data['model_synonyms'] = $finalSynonyms;
-                }
-            } else {
-                $data['model_synonyms'] = $finalSynonyms;
-            }
-        }
-        
+
         $oldIdioma = AiReportSetting::first()?->idioma;
 
         AiReportSetting::updateOrCreate(
