@@ -2,7 +2,6 @@
 
 **Filament Data Copilot** is a powerful AI-driven assistant for Filament PHP that allows you to chat with your database. Turn plain natural language into precise SQL queries, interactive charts, textual insights, and automated PDF reports directly inside your Filament Admin Panel.
 
----
 
 ## Table of Contents
 
@@ -15,7 +14,6 @@
 - [Security](#security)
 - [License](#license)
 
----
 
 ## Features
 
@@ -27,7 +25,6 @@
 - **PDF Exports**: Export your charts and tables to beautiful PDF files.
 - **Multi-language Support**: Automatically adapts to your application's locale. Prompt the AI in any language (English, Spanish, French, Arabic, etc.), and the AI will dynamically translate SQL outputs seamlessly.
 
----
 
 ## Supported AI Providers
 
@@ -38,30 +35,28 @@ Powered by the robust [Laravel AI SDK](https://laravel.com/docs/13.x/ai-sdk), th
 - **Anthropic**
 - And all other providers supported by the `laravel/ai` package!
 
----
 
 ## Installation
 
 You can install the package via composer:
 
-```bash
+```shell
 composer require matondojk/filament-data-copilot
 ```
 
 Publish and run the migrations:
 
-```bash
+```shell
 php artisan vendor:publish --tag="filament-data-copilot-migrations"
 php artisan migrate
 ```
 
 *(Optional)* Publish the config file:
 
-```bash
+```shell
 php artisan vendor:publish --tag="filament-data-copilot-config"
 ```
 
----
 
 ## Usage
 
@@ -80,7 +75,6 @@ public function panel(Panel $panel): Panel
 
 Once registered, the **Data Copilot** and its **Settings** pages will appear in your Filament navigation menu.
 
----
 
 ## Configuration
 
@@ -92,7 +86,6 @@ Before making your first query, you must set up the AI context:
 4. **Allowed Models**: Select which Eloquent Models (Tables) the AI is authorized to read. *The AI will strictly be blocked from accessing any table not selected here.*
 5. **Business Context**: Provide a short description of your business to give the AI context for better insights.
 
----
 
 ## Prompt Examples
 
@@ -109,7 +102,6 @@ Because the package is completely multi-language, you can prompt the AI in any l
 ### Customers
 > "Who were the top 5 customers that purchased the most in our store by total value in the last quarter?"
 
----
 
 ## Security
 
