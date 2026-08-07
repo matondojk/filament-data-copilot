@@ -88,9 +88,9 @@
                 @if($currentOutputMode === 'Gráfico' && is_array($resultData) && count($resultData) > 0 && is_array($keys) && count($keys) >= 2)
                     <div class="mb-10 flex flex-wrap gap-6 justify-center">
                         @foreach(['bar' => __('filament-data-copilot::messages.Bar'), 'line' => __('filament-data-copilot::messages.Line'), 'pie' => __('filament-data-copilot::messages.Pie'), 'doughnut' => __('filament-data-copilot::messages.Doughnut'), 'stacked' => __('filament-data-copilot::messages.Stacked Bar'), 'multi-axis' => __('filament-data-copilot::messages.Multi-Axis Line'), 'polarArea' => __('filament-data-copilot::messages.Polar Area'), 'combo' => __('filament-data-copilot::messages.Combo (Bar + Line)')] as $key => $label)
-                            <label class="flex items-center gap-2 cursor-pointer group">
-                                <input type="radio" wire:model.live="currentChartType" value="{{ $key }}" class="w-4 h-4 text-primary-600 border-gray-300 focus:ring-primary-500 rounded-full transition-all bg-white dark:bg-white/10 dark:border-white/20">
-                                <span class="text-base font-medium text-gray-700 dark:text-gray-200 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">{{ $label }}</span>
+                            <label class="flex items-center gap-1.5 cursor-pointer group">
+                                <input type="radio" wire:model.live="currentChartType" value="{{ $key }}" class="w-3.5 h-3.5 text-primary-600 border-gray-300 focus:ring-primary-500 rounded-full transition-all bg-white dark:bg-white/10 dark:border-white/20">
+                                <span class="text-[11px] font-medium text-gray-700 dark:text-gray-200 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">{{ $label }}</span>
                             </label>
                         @endforeach
                     </div>
