@@ -1,26 +1,22 @@
-# 🚀 Filament Data Copilot
-
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/matondojk/filament-data-copilot.svg?style=flat-square)](https://packagist.org/packages/matondojk/filament-data-copilot)
-[![Total Downloads](https://img.shields.io/packagist/dt/matondojk/filament-data-copilot.svg?style=flat-square)](https://packagist.org/packages/matondojk/filament-data-copilot)
-[![License](https://img.shields.io/packagist/l/matondojk/filament-data-copilot.svg?style=flat-square)](https://packagist.org/packages/matondojk/filament-data-copilot)
+# Filament Data Copilot
 
 **Filament Data Copilot** is a powerful AI-driven assistant for Filament PHP that allows you to chat with your database. Turn plain natural language into precise SQL queries, interactive charts, textual insights, and automated PDF reports directly inside your Filament Admin Panel.
 
 ---
 
-## ✨ Features
+## Features
 
-- 💬 **Natural Language to SQL**: Stop writing complex SQL queries manually. Just ask for what you want in plain text.
-- 📊 **Dynamic & Interactive Charts**: Automatically renders data as Bar, Line, Pie, Doughnut, Stacked, and Polar Area charts.
-- 🤖 **AI-Generated Insights**: Provides a brief, intelligent textual interpretation of the data fetched.
-- 🔒 **Safe & Restricted Context**: Strictly limit which database tables and columns the AI is allowed to query to prevent unauthorized data access.
-- ⏰ **Scheduled Reports via Email**: You can easily schedule report generation and receive updates directly in your inbox daily, weekly, or monthly!
-- 📄 **PDF Exports**: Export your charts and tables to beautiful PDF files.
-- 🌍 **Multi-language Support**: Automatically adapts to your application's locale, translating dynamic SQL outputs (like months and statuses) seamlessly.
+- **Natural Language to SQL**: Stop writing complex SQL queries manually. Just ask for what you want in plain text.
+- **Dynamic & Interactive Charts**: Automatically renders data as Bar, Line, Pie, Doughnut, Stacked, and Polar Area charts.
+- **AI-Generated Insights**: Provides a brief, intelligent textual interpretation of the data fetched.
+- **Safe & Restricted Context**: Strictly limit which database tables and columns the AI is allowed to query to prevent unauthorized data access.
+- **Scheduled Reports via Email**: You can easily schedule report generation and receive updates directly in your inbox daily, weekly, or monthly.
+- **PDF Exports**: Export your charts and tables to beautiful PDF files.
+- **Multi-language Support**: Automatically adapts to your application's locale, translating dynamic SQL outputs (like months and statuses) seamlessly.
 
 ---
 
-## 🧠 Supported AI Providers
+## Supported AI Providers
 
 Powered by the robust Laravel AI SDK, this package supports multiple Large Language Models out-of-the-box:
 - **OpenAI** (GPT-4o, GPT-4o-mini)
@@ -31,7 +27,7 @@ Powered by the robust Laravel AI SDK, this package supports multiple Large Langu
 
 ---
 
-## 📦 Installation
+## Installation
 
 You can install the package via composer:
 
@@ -54,7 +50,7 @@ php artisan vendor:publish --tag="filament-data-copilot-config"
 
 ---
 
-## 🚀 Usage
+## Usage
 
 Register the plugin in your Filament Panel Provider (usually `app/Providers/Filament/AdminPanelProvider.php`):
 
@@ -73,7 +69,7 @@ Once registered, the **Data Copilot** (Análise Inteligente) and its **Settings*
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 Before making your first query, you must set up the AI context:
 
@@ -85,27 +81,27 @@ Before making your first query, you must set up the AI context:
 
 ---
 
-## 💡 Prompt Examples
+## Prompt Examples
 
 Not sure what to ask? Here are some examples of what you can type into the Data Copilot:
 
 ### Sales & Revenue
-> *"Mostre o total de vendas realizadas por mês neste ano, agrupando pelo status do pedido."*
+> "Mostre o total de vendas realizadas por mês neste ano, agrupando pelo status do pedido."
 > 
-> *"Show me the total revenue generated grouped by product category for the last 6 months."*
+> "Show me the total revenue generated grouped by product category for the last 6 months."
 
 ### Operations & Logistics
-> *"Apresente a evolução temporal das compras e vendas em base diária. Mostre total comprado, total vendido e a variação. Identifique tendências entre reposição de estoque e ritmo de vendas."*
+> "Apresente a evolução temporal das compras e vendas em base diária. Mostre total comprado, total vendido e a variação. Identifique tendências entre reposição de estoque e ritmo de vendas."
 
 ### Customers
-> *"Quais foram os 5 clientes que mais compraram na nossa loja em valor total no último trimestre?"*
+> "Quais foram os 5 clientes que mais compraram na nossa loja em valor total no último trimestre?"
 
 ---
 
-## 🛡️ Security
+## Security
 
 If you discover any security-related issues, please email **matondojk@github.com** instead of using the issue tracker.
 
-## 📄 License
+## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
