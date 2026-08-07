@@ -4,6 +4,19 @@
 
 ---
 
+## Table of Contents
+
+- [Features](#features)
+- [Supported AI Providers](#supported-ai-providers)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Prompt Examples](#prompt-examples)
+- [Security](#security)
+- [License](#license)
+
+---
+
 ## Features
 
 - **Natural Language to SQL**: Stop writing complex SQL queries manually. Just ask for what you want in plain text.
@@ -12,18 +25,18 @@
 - **Safe & Restricted Context**: Strictly limit which database tables and columns the AI is allowed to query to prevent unauthorized data access.
 - **Scheduled Reports via Email**: You can easily schedule report generation and receive updates directly in your inbox daily, weekly, or monthly.
 - **PDF Exports**: Export your charts and tables to beautiful PDF files.
-- **Multi-language Support**: Automatically adapts to your application's locale, translating dynamic SQL outputs (like months and statuses) seamlessly.
+- **Multi-language Support**: Automatically adapts to your application's locale. Prompt the AI in any language (English, Spanish, French, Arabic, etc.), and the AI will dynamically translate SQL outputs seamlessly.
 
 ---
 
 ## Supported AI Providers
 
-Powered by the robust Laravel AI SDK, this package supports multiple Large Language Models out-of-the-box:
+Powered by the robust [Laravel AI SDK](https://laravel.com/docs/13.x/ai-sdk), this package supports multiple Large Language Models out-of-the-box:
 - **OpenAI** (GPT-4o, GPT-4o-mini)
 - **DeepSeek** 
 - **Azure OpenAI**
 - **Anthropic**
-- And all other providers supported by `laravel-ai/laravel-ai`!
+- And all other providers supported by the `laravel/ai` package!
 
 ---
 
@@ -65,7 +78,7 @@ public function panel(Panel $panel): Panel
 }
 ```
 
-Once registered, the **Data Copilot** (Análise Inteligente) and its **Settings** pages will appear in your Filament navigation menu.
+Once registered, the **Data Copilot** and its **Settings** pages will appear in your Filament navigation menu.
 
 ---
 
@@ -83,24 +96,24 @@ Before making your first query, you must set up the AI context:
 
 ## Prompt Examples
 
-Not sure what to ask? Here are some examples of what you can type into the Data Copilot:
+Because the package is completely multi-language, you can prompt the AI in any language you want. Here are some examples of what you can type into the Data Copilot:
 
 ### Sales & Revenue
-> "Mostre o total de vendas realizadas por mês neste ano, agrupando pelo status do pedido."
-> 
 > "Show me the total revenue generated grouped by product category for the last 6 months."
+> 
+> "Show the total sales made per month this year, grouped by order status."
 
 ### Operations & Logistics
-> "Apresente a evolução temporal das compras e vendas em base diária. Mostre total comprado, total vendido e a variação. Identifique tendências entre reposição de estoque e ritmo de vendas."
+> "Present the temporal evolution of purchases and sales on a daily basis. Show total bought, total sold, and the variation. Identify trends between inventory replacement and sales rhythm."
 
 ### Customers
-> "Quais foram os 5 clientes que mais compraram na nossa loja em valor total no último trimestre?"
+> "Who were the top 5 customers that purchased the most in our store by total value in the last quarter?"
 
 ---
 
 ## Security
 
-If you discover any security-related issues, please email **matondojk@github.com** instead of using the issue tracker.
+If you discover any security-related issues, please use the issue tracker directly.
 
 ## License
 
