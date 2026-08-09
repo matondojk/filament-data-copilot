@@ -52,6 +52,13 @@ php artisan vendor:publish --tag="filament-data-copilot-migrations"
 php artisan migrate
 ```
 
+Since this package uses custom frontend assets and Tailwind styling, you must build your assets:
+
+```shell
+npm install
+npm run build
+```
+
 *(Optional)* Publish the config file:
 
 ```shell
