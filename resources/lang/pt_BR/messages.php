@@ -103,4 +103,5 @@ return [
     'No data returned' => 'Nenhum dado retornado',
     'The intelligent analysis returned no records for this request.' => 'A análise inteligente não retornou nenhum registro para esta solicitação.',
     'No data found for this analysis.' => 'Nenhum dado encontrado para esta análise.',
+    'View Generated SQL' => 'Visualizar SQL Gerado',
 ];

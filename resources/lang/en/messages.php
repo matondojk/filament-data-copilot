@@ -104,4 +104,5 @@ return [
     'No data returned' => 'No data returned',
     'The intelligent analysis returned no records for this request.' => 'The intelligent analysis returned no records for this request.',
     'No data found for this analysis.' => 'No data found for this analysis.',
+    'View Generated SQL' => 'View Generated SQL',
 ];
