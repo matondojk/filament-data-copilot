@@ -52,8 +52,14 @@ php artisan vendor:publish --tag="filament-data-copilot-migrations"
 php artisan migrate
 ```
 
-Since this package uses custom frontend assets and Tailwind styling, you must tell Tailwind to scan the package files. Add this to your `tailwind.config.js` in the `content` array:
+Since this package uses custom frontend assets and Tailwind styling, you must tell Tailwind to scan the package files.
 
+**If you are using Tailwind CSS v4** (default in new Laravel versions), add this to your `resources/css/app.css`:
+```css
+@source "../../vendor/matondojk/filament-data-copilot/resources/**/*.blade.php";
+```
+
+**If you are using Tailwind CSS v3**, add this to your `tailwind.config.js` in the `content` array:
 ```javascript
 export default {
     content: [
