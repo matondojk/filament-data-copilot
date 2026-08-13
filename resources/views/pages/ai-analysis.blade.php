@@ -316,17 +316,7 @@
                                 </table>
                             </div>
                             
-                            @if(!empty($this->generatedSql))
-                            <details class="mt-6 w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
-                                <summary class="cursor-pointer px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50 outline-none flex items-center justify-between">
-                                    {{ __('filament-data-copilot::messages.View Generated SQL') }}
-                                    <x-filament::icon icon="heroicon-o-chevron-down" class="w-4 h-4 text-gray-500" />
-                                </summary>
-                                <div class="p-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 overflow-x-auto text-left">
-                                    <pre class="text-xs text-gray-600 dark:text-gray-400 font-mono">{{ $this->generatedSql }}</pre>
-                                </div>
-                            </details>
-                            @endif
+
                         @else
                             <div class="px-6 py-12 flex flex-col items-center justify-center text-center">
                                 <svg class="w-12 h-12 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
