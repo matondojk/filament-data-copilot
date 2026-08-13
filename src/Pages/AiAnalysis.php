@@ -46,7 +46,6 @@ class AiAnalysis extends Page implements HasForms, HasActions
         return __('filament-data-copilot::messages.Smart Reporting');
     }
 
-    #[Url]
     public ?string $uuid = null;
 
     public ?array $data = [];
