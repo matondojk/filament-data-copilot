@@ -101,4 +101,7 @@ return [
     'Multi-Axis Line' => 'Multi-Axis Line',
     'Polar Area' => 'Polar Area',
     'Combo (Bar + Line)' => 'Combo (Bar + Line)',
+    'No data returned' => 'No data returned',
+    'The intelligent analysis returned no records for this request.' => 'The intelligent analysis returned no records for this request.',
+    'No data found for this analysis.' => 'No data found for this analysis.',
 ];
