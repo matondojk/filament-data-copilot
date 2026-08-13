@@ -359,6 +359,8 @@ class AiAnalysis extends Page implements HasForms, HasActions
                 );
                 $descResponse = $descAgent->prompt("Data: {$dataJson}", [], $provider, $textModel);
                 $this->chartDescription = trim(str_replace(['"', "'", '`'], '', $descResponse->text));
+            } else {
+                $this->chartDescription = __('filament-data-copilot::messages.No data found for this analysis.');
             }
             
             $this->uuid = (string) Str::uuid();

@@ -1,5 +1,5 @@
 <x-filament-panels::page>
-    @if(!$resultData)
+    @if(is_null($resultData))
         <form wire:submit="submit">
             {{ $this->form }}
 
