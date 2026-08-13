@@ -374,6 +374,9 @@ class AiAnalysis extends Page implements HasForms, HasActions
             
             \Filament\Notifications\Notification::make()->title(__('filament-data-copilot::messages.Analysis Completed'))->success()->send();
             
+            // Redirect to the same page but with the UUID to make it a dedicated report link
+            $this->redirect(url()->current() . '?uuid=' . $this->uuid, navigate: true);
+            
             // Force Chart.js to recalculate its dimensions after the DOM has updated
             $this->js('setTimeout(() => window.dispatchEvent(new Event("resize")), 100);');
 
