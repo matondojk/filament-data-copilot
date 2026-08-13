@@ -315,13 +315,43 @@
                                     </tbody>
                                 </table>
                             </div>
+                            
+                            @if(!empty($this->generatedSql))
+                            <details class="mt-6 w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
+                                <summary class="cursor-pointer px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50 outline-none flex items-center justify-between">
+                                    {{ __('filament-data-copilot::messages.View Generated SQL') }}
+                                    <x-filament::icon icon="heroicon-o-chevron-down" class="w-4 h-4 text-gray-500" />
+                                </summary>
+                                <div class="p-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 overflow-x-auto text-left">
+                                    <pre class="text-xs text-gray-600 dark:text-gray-400 font-mono">{{ $this->generatedSql }}</pre>
+                                </div>
+                            </details>
+                            @endif
                         @else
                             <div class="px-6 py-12 flex flex-col items-center justify-center text-center">
-                                <svg class="w-12 h-12 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                                </svg>
-                                <h3 class="text-base font-semibold text-gray-900 dark:text-white">Nenhum dado retornado</h3>
-                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">A análise inteligente não retornou nenhum registro para a solicitação.</p>
+                                <div class="mt-4 flex flex-col items-center justify-center space-y-4">
+                                    <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg max-w-2xl w-full text-center border border-gray-200 dark:border-gray-700">
+                                        <div class="flex items-center justify-center w-12 h-12 mx-auto mb-3 bg-gray-200 dark:bg-gray-700 rounded-full text-gray-500 dark:text-gray-400">
+                                            <x-filament::icon icon="heroicon-o-document-magnifying-glass" class="w-6 h-6" />
+                                        </div>
+                                        <h3 class="text-base font-semibold text-gray-900 dark:text-white">{{ __('filament-data-copilot::messages.No data returned') }}</h3>
+                                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                                            {{ __('filament-data-copilot::messages.The intelligent analysis returned no records for this request.') }}
+                                        </p>
+                                    </div>
+                                    
+                                    @if(!empty($this->generatedSql))
+                                    <details class="w-full max-w-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
+                                        <summary class="cursor-pointer px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50 outline-none flex items-center justify-between">
+                                            {{ __('filament-data-copilot::messages.View Generated SQL') }}
+                                            <x-filament::icon icon="heroicon-o-chevron-down" class="w-4 h-4 text-gray-500" />
+                                        </summary>
+                                        <div class="p-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 overflow-x-auto text-left">
+                                            <pre class="text-xs text-gray-600 dark:text-gray-400 font-mono">{{ $this->generatedSql }}</pre>
+                                        </div>
+                                    </details>
+                                    @endif
+                                </div>
                             </div>
                         @endif
                     </div>
