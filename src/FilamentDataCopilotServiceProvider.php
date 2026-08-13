@@ -4,6 +4,8 @@ namespace Matondojk\FilamentDataCopilot;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 use Matondojk\FilamentDataCopilot\Pages\AiAnalysis;
 use Matondojk\FilamentDataCopilot\Pages\AiSettings;
 
@@ -18,5 +20,12 @@ class FilamentDataCopilotServiceProvider extends PackageServiceProvider
             ->hasTranslations()
             ->hasCommand(\Matondojk\FilamentDataCopilot\Commands\SendScheduledReports::class)
             ->hasMigration('create_filament_data_copilot_tables');
+    }
+
+    public function packageBooted(): void
+    {
+        FilamentAsset::register([
+            Css::make('filament-data-copilot', __DIR__ . '/../resources/dist/filament-data-copilot.css'),
+        ], 'matondojk/filament-data-copilot');
     }
 }
