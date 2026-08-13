@@ -151,16 +151,7 @@ class AiAnalysis extends Page implements HasForms, HasActions
                 return $suggestions;
             }
         }
-        
-        $businessDesc = $settings->business_description ?? 'Nenhuma descrição de negócio fornecida.';
-        $allowedModels = empty($settings->allowed_models) ? 'Nenhum modelo específico' : implode(', ', $settings->allowed_models);
-        
-        // Retorna um array no formato ['prompt_completo' => 'Título da Sugestão']
-        return [
-            "Analise os dados considerando o negócio: {$businessDesc}. Foco nas tabelas: {$allowedModels}. Gere um relatório detalhado de crescimento." => 'Relatório de Crescimento (IA)',
-            "Crie um resumo financeiro e de fluxo de usuários para o modelo de negócio: {$businessDesc}." => 'Resumo Financeiro (IA)',
-            "Identifique anomalias nos registros recentes do banco de dados para os modelos: {$allowedModels}." => 'Busca de Anomalias (IA)',
-        ];
+        return [];
     }
 
     public function form(Schema $form): Schema
